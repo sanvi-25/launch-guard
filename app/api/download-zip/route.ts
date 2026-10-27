@@ -18,7 +18,7 @@ export async function GET() {
       // Ignore if permission issue
     }
 
-    return new NextResponse(zipBuffer, {
+    return new NextResponse(zipBuffer as unknown as BodyInit, {
       status: 200,
       headers: {
         "Content-Type": "application/zip",
