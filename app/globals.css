@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #050814;
+  --ink-soft: #0a0f24;
+  --panel: #0d1533;
+  --panel-elevated: #131e45;
+  --panel-subtle: #090e22;
+  --line: #1e2c56;
+  --line-strong: #2a3c75;
+  --line-accent: #38bdf833;
+  --muted: #8d9dc8;
+  --muted-dark: #586996;
+  --accent-cyan: #38bdf8;
+  --accent-emerald: #34d399;
+  --accent-amber: #fbbf24;
+  --accent-rose: #f87171;
+}
+
+body {
+  background-color: var(--ink);
+  color: #e5ecfb;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08), transparent 45%),
+    radial-gradient(circle at 90% 20%, rgba(99, 102, 241, 0.06), transparent 35%),
+    radial-gradient(circle at 10% 40%, rgba(16, 185, 129, 0.04), transparent 40%),
+    linear-gradient(to bottom, #050814, #070d1e);
+  min-height: 100vh;
+}
+
+/* Subtle aerospace radar grid background */
+.space-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Glowing card glassmorphism */
+.glass-panel {
+  background: rgba(13, 21, 51, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line);
+}
+
+.glass-panel-elevated {
+  background: rgba(19, 30, 69, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(56, 189, 248, 0.1);
+}
+
+.glass-panel-card {
+  background: linear-gradient(180deg, rgba(16, 26, 60, 0.82) 0%, rgba(10, 16, 38, 0.9) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(42, 60, 117, 0.7);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-card:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px -10px rgba(0, 0, 0, 0.6), 0 0 25px -5px rgba(56, 189, 248, 0.15);
+}
+
+/* Animated glowing beacons */
+@keyframes beacon-pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(248, 113, 113, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(248, 113, 113, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(248, 113, 113, 0); }
+}
+
+.beacon-high {
+  animation: beacon-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes sweep-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: sweep-ring 24s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-cyan);
+}
+
+/* Glow highlights */
+.glow-cyan {
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+}
+
+.glow-rose {
+  text-shadow: 0 0 16px rgba(248, 113, 113, 0.45);
+}
+
+.glow-amber {
+  text-shadow: 0 0 16px rgba(251, 191, 36, 0.45);
+}

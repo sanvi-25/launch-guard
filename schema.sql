@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS risk_audits (
+  id SERIAL PRIMARY KEY,
+  mission_name VARCHAR(255) NOT NULL,
+  rocket_name VARCHAR(255) NOT NULL,
+  agency VARCHAR(255) NOT NULL,
+  risk_level VARCHAR(50) NOT NULL,
+  delay_reason TEXT,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
